@@ -13,6 +13,6 @@ sleep 5
 
 mysql < create_database.sql
 
-cd /var/www/html && php artisan migrate
+cd /var/www/html && php artisan migrate --force
 
 exec /usr/sbin/apachectl -DFOREGROUND
