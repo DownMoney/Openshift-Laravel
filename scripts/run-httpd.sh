@@ -9,8 +9,10 @@ mysql_install_db --user=mysql --basedir=/usr/ --ldata=/var/lib/mysql/
 
 mysqld_safe &
 
-sleep 10
+sleep 5
 
 mysql < create_database.sql
+
+cd /var/www/html && php artisan migrate
 
 exec /usr/sbin/apachectl -DFOREGROUND

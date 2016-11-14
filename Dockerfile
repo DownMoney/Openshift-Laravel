@@ -40,4 +40,7 @@ VOLUME ["/etc/mysql", "/var/lib/mysql"]
 
 ADD scripts/create_database.sql /create_database.sql
 
+RUN sed -i 's/^    AllowOverride None/    AllowOverride All/' /etc/httpd/conf/httpd.conf
+RUN sed -i 's/^DocumentRoot "\/var\/www\/html"/DocumentRoot "\/var\/www\/html\/public"/' /etc/httpd/conf/httpd.conf
+
 CMD ["/run-httpd.sh"]
